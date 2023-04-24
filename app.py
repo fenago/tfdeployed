@@ -9,6 +9,7 @@ import joblib
 scaler = joblib.load('scaler.pkl')
 # Load the model
 model = tf.keras.models.load_model("model.h5")
+num_cols = ['BEDS', 'BATHS', 'SQUARE FEET', 'LOT SIZE', 'YEAR BUILT']
 
 
 def predict_price(input_data):
