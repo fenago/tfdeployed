@@ -2,7 +2,12 @@ import streamlit as st
 import pandas as pd
 import tensorflow as tf
 
-# Load the trained model
+# Load the trained model and the scaler
+import joblib
+
+# Load the scaler object
+scaler = joblib.load('scaler.pkl')
+# Load the model
 model = tf.keras.models.load_model("model.h5")
 
 
