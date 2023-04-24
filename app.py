@@ -1,8 +1,12 @@
 import streamlit as st
 import pandas as pd
 import tensorflow as tf
+
 # Load the trained model
-model = tf.keras.models.load_model("model.h5")
+from tensorflow.keras.optimizers import Adam
+
+custom_objects = {"Custom>Adam": Adam}
+model = tf.keras.models.load_model("model.h5", custom_objects=custom_objects)
 
 def predict_price(input_data):
     return model.predict(input_data)
