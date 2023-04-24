@@ -3,10 +3,8 @@ import pandas as pd
 import tensorflow as tf
 
 # Load the trained model
-from tensorflow.keras.optimizers import Adam
+model = tf.keras.models.load_model("model.h5")
 
-custom_objects = {"Custom>Adam": Adam}
-model = tf.keras.models.load_model("model.h5", custom_objects=custom_objects)
 
 def predict_price(input_data):
     return model.predict(input_data)
