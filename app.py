@@ -9,7 +9,7 @@ import joblib
 scaler = joblib.load('scaler.pkl')
 # Load the model
 model = tf.keras.models.load_model("model.h5")
-num_cols = ['BEDS', 'BATHS', 'SQUARE FEET', 'LOT SIZE', 'YEAR BUILT']
+num_cols = ['BEDS', 'BATHS', 'SQUARE FEET', 'LOT SIZE', 'YEAR BUILT', 'PROPERTY_TYPE_Mobile/Manufactured Home', 'PROPERTY_TYPE_Single Family Residential']
 
 
 def predict_price(input_data):
@@ -36,6 +36,8 @@ input_data = pd.DataFrame({
     "YEAR BUILT": [year_built],
     property_type: [1],
 })
+input_data['PROPERTY_TYPE_Mobile/Manufactured Home'] = 0
+input_data['PROPERTY_TYPE_Single Family Residential'] = 0
 
 # Fill zeros for other property types
 for pt in property_types:
